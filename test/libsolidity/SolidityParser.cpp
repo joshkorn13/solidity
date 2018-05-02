@@ -856,7 +856,7 @@ BOOST_AUTO_TEST_CASE(modifier_without_semicolon)
 			modifier mod { if (msg.sender == 0) _ }
 		}
 	)";
-	CHECK_PARSE_ERROR(text, "Expected token Semicolon got");
+	CHECK_PARSE_ERROR(text, "Expected ';' but got '}'");
 }
 
 BOOST_AUTO_TEST_CASE(modifier_arguments)
@@ -925,7 +925,7 @@ BOOST_AUTO_TEST_CASE(event_with_no_argument_list_fails)
 			event e;
 		}
 	)";
-	CHECK_PARSE_ERROR(text, "Expected token LParen got 'Semicolon'");
+	CHECK_PARSE_ERROR(text, "Expected '(' but got ';'");
 }
 
 BOOST_AUTO_TEST_CASE(visibility_specifiers)
@@ -1246,7 +1246,7 @@ BOOST_AUTO_TEST_CASE(local_const_variable)
 				return local;
 			}
 	})";
-	CHECK_PARSE_ERROR(text, "Expected token Semicolon");
+	CHECK_PARSE_ERROR(text, "Expected ';' but got 'constant'");
 }
 
 BOOST_AUTO_TEST_CASE(multi_variable_declaration)
@@ -1294,7 +1294,7 @@ BOOST_AUTO_TEST_CASE(tuples_without_commas)
 			}
 		}
 	)";
-	CHECK_PARSE_ERROR(text, "Expected token Comma");
+	CHECK_PARSE_ERROR(text, "Expected ',' but got 'Number'");
 }
 
 BOOST_AUTO_TEST_CASE(member_access_parser_ambiguity)
@@ -1527,7 +1527,7 @@ BOOST_AUTO_TEST_CASE(no_double_radix_in_fixed_literal)
 			fixed40x40 pi = 3.14.15;
 		}
 	)";
-	CHECK_PARSE_ERROR(text, "Expected token Semicolon");
+	CHECK_PARSE_ERROR(text, "Expected ';' but got 'Number'");
 }
 
 BOOST_AUTO_TEST_CASE(invalid_fixed_conversion_leading_zeroes_check)
@@ -1582,7 +1582,7 @@ BOOST_AUTO_TEST_CASE(function_type_as_storage_variable_with_modifiers)
 			function (uint, uint) modifier1() returns (uint) f1;
 		}
 	)";
-	CHECK_PARSE_ERROR(text, "Expected token LBrace");
+	CHECK_PARSE_ERROR(text, "Expected '{' but got 'Identifier'");
 }
 
 BOOST_AUTO_TEST_CASE(function_type_as_storage_variable_with_assignment)
@@ -1706,7 +1706,7 @@ BOOST_AUTO_TEST_CASE(emitWithoutEvent)
 			}
 		}
 	)";
-	CHECK_PARSE_ERROR(text, "Expected token LParen got 'Semicolon'");
+	CHECK_PARSE_ERROR(text, "Expected '(' but got ';'");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
