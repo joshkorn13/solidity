@@ -1053,7 +1053,7 @@ BOOST_AUTO_TEST_CASE(malformed_enum_declaration)
 		contract c {
 			enum foo { WARNING,}
 		})";
-	CHECK_PARSE_ERROR(text, "Expected Identifier after");
+	CHECK_PARSE_ERROR(text, "Expected identifier after ','");
 }
 
 BOOST_AUTO_TEST_CASE(external_function)
@@ -1071,7 +1071,7 @@ BOOST_AUTO_TEST_CASE(external_variable)
 		contract c {
 			uint external x;
 		})";
-	CHECK_PARSE_ERROR(text, "Expected identifier");
+	CHECK_PARSE_ERROR(text, "Expected identifier, but got 'External'");
 }
 
 BOOST_AUTO_TEST_CASE(arrays_in_storage)

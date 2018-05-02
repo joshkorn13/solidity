@@ -528,7 +528,7 @@ ASTPointer<EnumDefinition> Parser::parseEnumDefinition()
 			break;
 		expectToken(Token::Comma);
 		if (m_scanner->currentToken() != Token::Identifier)
-			fatalParserError(string("Expected Identifier after ','"));
+			fatalParserError(string("Expected identifier after ','"));
 	}
 	if (members.size() == 0)
 		parserError({"enum with no members is not allowed."});
@@ -1618,7 +1618,7 @@ Token::Value Parser::expectAssignmentOperator()
 	Token::Value op = m_scanner->currentToken();
 	if (!Token::isAssignmentOp(op))
 		fatalParserError(
-			string("Expected assignment operator,  got '") +
+			string("Expected assignment operator, but got '") +
 			currentTokenName() +
 			string("'")
 		);
@@ -1631,7 +1631,7 @@ ASTPointer<ASTString> Parser::expectIdentifierToken()
 	Token::Value id = m_scanner->currentToken();
 	if (id != Token::Identifier)
 		fatalParserError(
-			string("Expected identifier, got '") +
+			string("Expected identifier, but got '") +
 			currentTokenName() +
 			string("'")
 		);
