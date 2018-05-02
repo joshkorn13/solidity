@@ -249,7 +249,7 @@ BOOST_AUTO_TEST_CASE(missing_parameter_name_in_named_args)
 			function b() returns (uint r) { r = a({: 1, : 2, : 3}); }
 		}
 	)";
-	CHECK_PARSE_ERROR(text, "Expected identifier");
+	CHECK_PARSE_ERROR(text, "Expected 'Identifier', but got ':'");
 }
 
 BOOST_AUTO_TEST_CASE(missing_argument_in_named_args)
@@ -1071,7 +1071,7 @@ BOOST_AUTO_TEST_CASE(external_variable)
 		contract c {
 			uint external x;
 		})";
-	CHECK_PARSE_ERROR(text, "Expected identifier, but got 'External'");
+	CHECK_PARSE_ERROR(text, "Expected 'Identifier' but got 'external'");
 }
 
 BOOST_AUTO_TEST_CASE(arrays_in_storage)
@@ -1549,7 +1549,7 @@ BOOST_AUTO_TEST_CASE(payable_accessor)
 			uint payable x;
 		}
 	)";
-	CHECK_PARSE_ERROR(text, "Expected identifier");
+	CHECK_PARSE_ERROR(text, "Expected 'Identifier' but got 'payable'");
 }
 
 BOOST_AUTO_TEST_CASE(function_type_in_expression)
